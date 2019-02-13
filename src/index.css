@@ -56,3 +56,9 @@ table {
 html {
   font-size: 100%;
 }
+
+body {
+	align-items: center;
+    display: flex;
+    justify-content: center;
+}

@@ -3,7 +3,7 @@ import './App.css';
 
 import TodoList from './components/TodoComponents/TodoList';
 
-const toDoDefaults = [
+const todoDefaults = [
   {
     id: 1528817077286,
     task: 'Organize Garage',
@@ -20,7 +20,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoArray: toDoDefaults,
+      todoArray: todoDefaults,
       inputTask: ''
     };
   }
@@ -46,6 +46,12 @@ class App extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+
+  // toggleComplete = event => {
+  //   this.setState({
+  //     todoArray[event.target.value]['id'] = 
+  //   })
+  // }
 
   render() {
     return (

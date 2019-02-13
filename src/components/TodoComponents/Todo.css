@@ -2,6 +2,10 @@
     padding: 0.5rem 0;
 }
 
+.todo input {
+    margin-right: 0.5rem;
+}
+
 .todo-form {
     padding: 1rem 0;
 }

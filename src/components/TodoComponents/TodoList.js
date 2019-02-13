@@ -9,7 +9,7 @@ const TodoList = props => {
     return (
         <div className="todo-list">
             {props.state.todoArray.map((todo, index) => {
-                
+
                 return <Todo key={todo.id} index={index} todoItem={todo} />;
             })}
             <TodoForm

@@ -21,9 +21,10 @@ class App extends React.Component {
     super();
     this.state = {
       todoArray: toDoDefaults,
-      inputTask: '',
+      inputTask: ''
     };
   }
+
   addTodo = event => {
     event.preventDefault();
     // create new Todo
@@ -36,7 +37,7 @@ class App extends React.Component {
     // then, clear inputTask
     this.setState({
       todoArray: [...this.state.todoArray, newTodo],
-      inputTask: '',
+      inputTask: ''
     });
   };
 
@@ -44,7 +45,6 @@ class App extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    console.log(this.state.inputTask);
   };
 
   render() {

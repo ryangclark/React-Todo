@@ -10,10 +10,17 @@ const TodoList = props => {
         <div className="todo-list">
             {props.state.todoArray.map((todo, index) => {
 
-                return <Todo key={todo.id} index={index} todoItem={todo} />;
+                return <Todo 
+                            index={index}
+                            key={todo.id}
+                            todoItem={todo}
+                            toggleComplete={props.toggleComplete}
+                        />;
             })}
             <TodoForm
+                anyTodosCompleted={props.anyTodosCompleted}
                 addTodo={props.addTodo}
+                clearCompletedTodos={props.clearCompletedTodos}
                 handleFormChange={props.handleAddTodoFormChanges}
                 task={props.state.inputTask}
             />

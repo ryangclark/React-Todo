@@ -2,14 +2,13 @@ import React from 'react';
 import './Todo.css';
 
 const Todo = props => {
-    return <div className="todo">
-        <input 
+    return <div className={`todo${props.todoItem.completed ? ' todo-completed' : ''}`}>
+        <input
             type="checkbox"
             name={props.todoItem.task}
             value={props.index} 
-            onClick={
-                // props.toggleComplete
-                event => console.log(event.target.value)
+            onChange={
+                () => props.toggleComplete(props.todoItem.id)
             }
             checked={props.todoItem.completed}
         />

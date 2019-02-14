@@ -59,6 +59,8 @@ html {
 
 body {
 	align-items: center;
-    display: flex;
-    justify-content: center;
+	display: flex;
+	font-family: 'Open Sans', sans-serif;
+	justify-content: center;
+	min-height: 75vh;
 }

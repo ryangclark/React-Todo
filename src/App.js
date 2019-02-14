@@ -20,13 +20,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      inputTask: '',
       todoArray: todoDefaults,
-      inputTask: ''
     };
+    console.log(this.state.anyTodoCompleted)
   }
 
   addTodo = event => {
     event.preventDefault();
+    // check for empty form
+    if (!this.state.inputTask) {return;}
     // create new Todo
     const newTodo = {
       id: new Date().getTime(),
@@ -41,26 +44,59 @@ class App extends React.Component {
     });
   };
 
+  checkForCompletedTodos = () => {
+    for (let todo of this.state.todoArray) {
+      if (todo.completed) {
+        console.log('checkForCompletedTodos: True');
+        return true;
+      }
+    }
+    console.log('checkForCompletedTodos: Else');
+    return false;
+  };
+
+  clearCompletedTodos = () => {
+    this.setState({
+      todoArray: this.state.todoArray.filter(todo => !todo.completed)
+    })
+  }
+
   handleAddTodoFormChanges = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
-  // toggleComplete = event => {
-  //   this.setState({
-  //     todoArray[event.target.value]['id'] = 
-  //   })
-  // }
+  toggleComplete = todoId => {
+    this.setState({
+      todoArray: this.state.todoArray.map(todo => {
+        if (todo.id === todoId) {
+          return {...todo, completed: !todo.completed};
+        }
+        return todo;
+      })
+    })
+  }
 
   render() {
+    let anyTodosCompleted = false;
+    for (let todo of this.state.todoArray) {
+      if (todo.completed) {
+        console.log('anyTodosCompleted: True');
+        anyTodosCompleted = true;
+        break;
+      }
+    }
     return (
       <div className="app-container">
         <h2>Welcome to your Todo App!</h2>
         <TodoList
+          anyTodosCompleted={anyTodosCompleted}
           addTodo={this.addTodo}
-          state={this.state}
+          clearCompletedTodos={this.clearCompletedTodos}
           handleAddTodoFormChanges={this.handleAddTodoFormChanges}
+          state={this.state}
+          toggleComplete={this.toggleComplete}
         />
       </div>
     );

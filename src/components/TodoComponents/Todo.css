@@ -1,0 +1,28 @@
+.todo {
+    padding: 0.5rem 0;
+}
+
+.todo.todo-completed {
+    opacity: 0.75;
+    font-weight: 300;
+    text-decoration: line-through;
+}
+
+.todo input {
+    opacity: 1;
+    margin-right: 0.5rem;
+}
+
+.todo-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.todo-form button {
+    padding: 0.25rem 0.5rem;
+}
+
+.todo-form form button {
+    margin: 0 1rem;
+}
